@@ -1,0 +1,35 @@
+﻿@using StokMvc.Models.Entity;
+@model List<TBLKATEGORILER>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>KATEGORİ ID</th>
+        <th>KATEGORİ ADI</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    <tbody>
+        @foreach (var ktgr in Model)
+        {
+            <tr>
+                <th>@ktgr.KATEGORIID</th>
+                <td>@ktgr.KATEGORIAD</td>
+                <td>
+                    <a href="/KATEGORi/SIL/@ktgr.KATEGORIID" class="btn btn-danger">SİL</a>
+                    @*<asp:Button runat="server" Text="Button" class="btn btn-danger">Sil</asp:Button>*@
+                </td>
+                <td>
+                    <a href="/KATEGORi/GUNCELLE/@ktgr.KATEGORIID" class="btn btn-primary">GÜNCELLE</a>
+                </td>
+            </tr>
+            
+        }
+    </tbody>
+</table>
+
+<a href="/KATEGORi/YeniKategori/" class="btn btn-success" >YENİ KATEGORİ EKLE</a>

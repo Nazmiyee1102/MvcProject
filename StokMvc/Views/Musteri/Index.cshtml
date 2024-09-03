@@ -1,0 +1,29 @@
+﻿@using StokMvc.Models.Entity;
+@model List<TBLMUSTERILER>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>MÜŞTERİ ID</th>
+        <th>MÜŞTERİ ADI</th>
+        <th>MÜŞTERİ SOYADI</th>
+        <th>EKLE</th>
+        <th>GÜNCELLE</th>
+    </tr>
+    <tbody>
+        @foreach (var musteri in Model)
+        {
+            <tr>
+                <th>@musteri.MUSTERIID</th>
+                <td>@musteri.MUSTERIAD</td>
+                <td>@musteri.MUSTERISOYAD</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/MUSTERI/YeniMusteri/" class="btn btn-success">YENİ MÜŞTERİ EKLE</a>
